@@ -1,4 +1,5 @@
 from project import *
+import pytest
 
 def test_add_empty_string():
     assert add("") == 0
@@ -18,3 +19,9 @@ def test_newline_split():
 
 def test_thousand_ignore():
     assert add("1001,2") == 2
+
+def test_negatives():
+    with pytest.raises(NegativeNotAllowed, match="Negatives not allowed:-1"):
+        add("-1,2")
+    with pytest.raises(NegativeNotAllowed, match="Negatives not allowed:-4,-5"):
+        add("2,-4,3,-5")
