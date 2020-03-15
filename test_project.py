@@ -15,3 +15,6 @@ def test_add_mult_digits():
 
 def test_newline_split():
     assert add("1\n2,3") == 6
+
+def test_thousand_ignore():
+    assert add("1001,2") == 2
