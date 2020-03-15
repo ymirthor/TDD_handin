@@ -25,3 +25,7 @@ def test_negatives():
         add("-1,2")
     with pytest.raises(NegativeNotAllowed, match="Negatives not allowed:-4,-5"):
         add("2,-4,3,-5")
+
+def test_custom_split():
+    assert add("//X\n1X2") == 3
+    assert add("//%\n1%2%3") == 6
